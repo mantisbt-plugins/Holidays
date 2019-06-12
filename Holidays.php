@@ -2,13 +2,14 @@
 class HolidaysPlugin extends MantisPlugin {
  
 	function register() {
-		$this->name        = 'Holidays';
+		$this->name        = lang_get( 'holidays_title' );
 		$this->description = lang_get( 'holidays_description' );
-		$this->version     = '0.96';
+		$this->version     = '0.97';
 		$this->requires    = array('MantisCore'       => '1.2.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
 		$this->url         = 'http://www.nuy.info';
+		$this->page			= 'config';
 	}
 
 	function init() { 
@@ -27,6 +28,14 @@ class HolidaysPlugin extends MantisPlugin {
 		plugin_event_hook('EVENT_NOTIFY_USER_INCLUDE', 'MailHoliday');
 		
 	}
+	
+	function config() {
+		return array(
+			'holidays_notes'			=> ON,
+			'holidays_reminders'		=> ON,
+			);
+	}
+
 
 	function DefHoliday(){
 		include 'plugins/Holidays/pages/holiday_form.php';
@@ -41,7 +50,6 @@ class HolidaysPlugin extends MantisPlugin {
 		$handler = $bug_info->handler_id;
 		// get the handler of the issue
 		$hol_table	= plugin_table('period');
-		$handler	= $bug_info->handler_id ;
 		$sql 		=  "select * from $hol_table where user_id=$handler";
 		$result	= db_query_bound($sql);
 		// check if this person is on holiday		

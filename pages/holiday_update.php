@@ -13,7 +13,7 @@ if ($absent > 0){
 		trigger_error( ERROR_INVALID_BACKUP, ERROR );
 	}
 	if ($absent == 1){
-		if (($form == '') or ($to == '')) {
+		if (($from == '') or ($to == '')) {
 			trigger_error( ERROR_INVALID_DATE, ERROR );
 		}
 	}
