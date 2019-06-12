@@ -1,0 +1,54 @@
+########################################################
+# 	Mantis Bugtracker Add-On
+# 	Holidays Version 0.90
+#	2013 plugin by Cas Nuy www.NUY.info
+#
+########################################################
+
+This plugin allows users to register that they are not available for  a certain period.
+Additionally a backup user can be defined who will be informed about all new/running issues ,in addition to the user on Holiday.
+
+If a user who had defined he is not available, logs on to the system, he will receive a warning.
+
+********************************************************************************************
+* Installation                                                                             *
+********************************************************************************************
+Do ensure to define a signal in account_page.php.
+Add the following line :
+	event_signal( 'EVENT_DEFINE_USER'); 
+Just before :
+	<?php # Delete Account Form BEGIN ?>
+
+
+Also ensure to define a signal in manage_user_delete.php.
+Add the following line :
+	event_signal( 'EVENT_DELETE_USER', $f_user_id ); 
+Just before :
+	form_security_purge('manage_user_delete');
+
+
+//
+events above may appear in standard Mantis in one of the next versions.
+//
+	
+The rest is like any other plugin. 
+After copying to your webserver :
+- Start mantis ad administrator
+- Select manage
+- Select manage Plugins
+- Select Install behind Holidays 0.90
+- Once installed, further maintenance is user-driven via the My Account page
+
+
+The text of the warning page can be adjusted (including html codes) within the language file
+********************************************************************************************
+License                                                                                    *
+********************************************************************************************
+This plugin is distributed under the same conditions as Mantis itself.
+
+********************************************************************************************
+Greetings                                                                                  *
+********************************************************************************************
+Cas Nuy 
+cas@nuy.info
+http://www.nuy.info
