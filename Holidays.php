@@ -4,7 +4,7 @@ class HolidaysPlugin extends MantisPlugin {
 	function register() {
 		$this->name        = 'Holidays';
 		$this->description = lang_get( 'holidays_description' );
-		$this->version     = '0.92';
+		$this->version     = '0.93';
 		$this->requires    = array('MantisCore'       => '1.2.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
@@ -12,13 +12,16 @@ class HolidaysPlugin extends MantisPlugin {
 	}
 
 	function init() { 
-		// Allow defining holiday
+		// Allow defining holiday on account page
 		event_declare('EVENT_ACCOUNT_UPDATE_FORM');
+		// Allow defining holiday by administrator
+		event_declare('EVENT_MANAGE_USER_FORM');
 		// Delete holiday settings when user is deleted
 		event_declare('EVENT_ACCOUNT_DELETED');
 		// above declarations may become obsolete once these are part of standard mantis
 		
 		plugin_event_hook('EVENT_ACCOUNT_UPDATE_FORM', 'DefHoliday');
+		plugin_event_hook('EVENT_MANAGE_USER_FORM', 'DefHoliday');
 		plugin_event_hook('EVENT_ACCOUNT_DELETED', 'DelHoliday');
 		plugin_event_hook('EVENT_LAYOUT_BODY_BEGIN', 'WarnHoliday');
 		plugin_event_hook('EVENT_NOTIFY_USER_INCLUDE', 'MailHoliday');

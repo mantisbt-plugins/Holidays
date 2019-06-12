@@ -6,13 +6,13 @@ END NOTE
 
 ########################################################
 # 	Mantis Bugtracker Add-On
-# 	Holidays Version 0.92
+# 	Holidays Version 0.93
 #	2013 plugin by Cas Nuy www.NUY.info
 #
 ########################################################
 
 This plugin allows users to register that they are not available for  a certain period or regardless of period.
-Additionally a backup user can be defined who will be informed about all new/running issues ,in addition to the user on Holiday.
+Additionally a backup user must be defined who will be informed about all new/running issues ,in addition to the user on Holiday.
 
 If a user who had defined he is not available, logs on to the system, he will receive a warning.
 
@@ -46,9 +46,9 @@ Just before :
 	
 Finally ensure to define a signal in manage_user_edit_page.php.
 Add the following line :
-	event_signal( 'EVENT_ACCOUNT_UPDATE_FORM'); 
+	event_signal( 'EVENT_MANAGE_USER_FORM'); 
 Just before :
-	html_page_bottom(); 
+	include ( 'account_prefs_inc.php' ); 
 
 
 Mantis can also be updated by applying some patch files.
@@ -63,7 +63,7 @@ After copying to your webserver :
 - Start mantis ad administrator
 - Select manage
 - Select manage Plugins
-- Select Install behind Holidays 0.92
+- Select Install behind Holidays 0.93
 - Once installed, further maintenance is user-driven via the My Account page
 
 
