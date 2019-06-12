@@ -6,8 +6,8 @@ END NOTE
 
 ########################################################
 # 	Mantis Bugtracker Add-On
-# 	Holidays Version 0.97
-#	2013 plugin by Cas Nuy www.NUY.info
+# 	Holidays Version 2.01
+#	2013-2017 plugin by Cas Nuy www.NUY.info
 #
 ########################################################
 
@@ -63,7 +63,7 @@ After copying to your webserver :
 - Start mantis ad administrator
 - Select manage
 - Select manage Plugins
-- Select Install behind Holidays 0.97
+- Select Install behind Holidays 0.96
 - Once installed, further maintenance is user-driven via the My Account page
 
 

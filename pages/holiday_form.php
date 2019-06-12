@@ -46,7 +46,7 @@ $result	= db_query_bound($sql);
 $count	= db_num_rows($result) ;
 // if not there create with blanks
 if ($count == 0){
-	$sql2 		= "insert into $hol_table values ($user_id, '','','',0)";
+	$sql2 		= "insert into $hol_table values ($user_id, 0,0,0,0)";
 	$result2	= db_query_bound($sql2);
 	$result		= db_query_bound($sql);
 }

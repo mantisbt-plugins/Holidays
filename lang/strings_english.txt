@@ -1,18 +1,12 @@
 <?php
-$s_holidays_title				= 'Holidays';
-$s_holidays_description			= 'Ability to define a user is not available';
-$s_holiday_title				= 'Define Holiday settings';
-$s_absent						= 'Absent';
-$s_backup						= 'My backup';
-$s_hol_warning					= 'You are on holiday !!!';
-$s_holidays_enabled				= 'Yes, period bound';
-$s_holidays_disabled			= 'No';
-$s_holidays_anyway				= 'Absent regardless of period';
+$s_holidays_description			= "Ability to define a user is not available";
+$s_holiday_title				= "Define Holiday settings";
+$s_absent						= "Absent";
+$s_backup						= "My backup";
+$s_hol_warning					= "<font color='red'><b>You are on holiday !!!</b></font>";
+$s_holidays_enabled				= "Yes, period bound";
+$s_holidays_disabled			= "No";
+$s_holidays_anyway				= "Absent regardless of period";
 
-$s_plugin_tasks_config			= 'Configuration';
-
-$s_holidays_on = 'Yes';
-$s_holidays_off = 'No';
-$s_holidays_notes = 'Spare option (Not Active) ';
-$s_holidays_reminders = 'Send Reminders to backup';
-$s_change_configuration ='Update Config'; 
+$MANTIS_ERROR['ERROR_INVALID_BACKUP'] = 'Backup user is not valid, please review.';   
+$MANTIS_ERROR['ERROR_INVALID_DATE'] = 'The date is invalid, please review.';   

@@ -24,8 +24,7 @@ if ($absent == 1){
 } else {
 	$sql = "UPDATE $hol_table set  absent=$absent, backup_user=$backup  WHERE user_id = $user_id";
 }
-$result .= db_query_bound($sql);
+$result = db_query_bound($sql);
 $script .="?user_id=";
 $script .=$user_id;
-//print_header_redirect( $script );
-print_header_redirect( "../../../account_page.php" . "?user_id=" . $user_id );
+print_header_redirect( $script );

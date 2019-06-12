@@ -12,8 +12,4 @@ Version 0.94		07-01-2013		Changed lay-out of form
 Version 0.95		09-01-2013		Added a check @ system startup if user is authenticated
 Version 0.96		15-01-2013		Added default value to date fields
 									Added check on valid date(s)
-Version 0.97		25-01-2013		Fixed typo in update routine
-									Added options to send also emails in case of Reminders & Notes 
-Version 0.98		09-07-2013		Added german language file
-									Fixed parse error in language files
-									Fixed redirect in holiday_update.php 
+Version 2.01		24-01-2017		Mantis 2.x compatibility
