@@ -1,0 +1,18 @@
+<?php
+$s_holidays_title				= 'Holidays';
+$s_holidays_description			= 'Abwesenheiten eintragen und Stellvertreter festlegen.';
+$s_holiday_title				= 'Abwesenheit / Stellvertreterregelung';
+$s_absent						= 'Abwesend';
+$s_backup						= 'Mein Stellvertreter';
+$s_hol_warning					= 'Du bist als abwesend markiert. Bitte ändere das bei Bedarf über Konto';
+$s_holidays_enabled				= 'Ferien (von / bis)';
+$s_holidays_disabled			= 'Anwesend';
+$s_holidays_anyway				= 'Ferien (bis auf Weiteres)';
+
+$s_plugin_tasks_config			= 'Konfiguration';
+
+$s_holidays_on = 'Ja';
+$s_holidays_off = 'Nein';
+$s_holidays_notes = 'Notizen (nicht implementiert)';
+$s_holidays_reminders = 'Erinnerungen an Stellvertreter senden';
+$s_change_configuration ='Konfiguration aktualisieren'; 
