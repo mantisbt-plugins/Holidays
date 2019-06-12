@@ -4,7 +4,8 @@ Version 0.91		05-01-2013		Renamed events
 									Removed "autoincrement"definition
 									Fixed typo while updating (for unix platform)
 									Updated install instructions
-Version 0.92		06-010-2013		Fixed missing quote in Holiday.php
+Version 0.92		06-01-2013		Fixed missing quote in Holiday.php
 									Added additional option for absence
 									Build in check on valid backup user
-Version 0.93						Used diffrenet event in manage_user pages
+Version 0.93		06-01-2013		Used different event in manage_user pages
+Version 0.94						Chamged lay-out of form

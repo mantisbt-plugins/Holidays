@@ -64,8 +64,10 @@ $to		= date( config_get( 'short_date_format' ), $to);
 <td >
 <label><input type="radio" name='absent' value="2" <?php echo(($absent==2)?'checked=checked':'');?>/>
 <?php echo lang_get( 'holidays_anyway' )?></label>
+<br>
 <label><input type="radio" name='absent' value="1" <?php echo(($absent==1)?'checked=checked':'');?>/>
 <?php echo lang_get( 'holidays_enabled' )?></label>
+<br>
 <label><input type="radio" name='absent' value="0" <?php echo(($absent==0)?'checked=checked':'');?>/>
 <?php echo lang_get( 'holidays_disabled' )?></label>
 
