@@ -4,7 +4,7 @@ class HolidaysPlugin extends MantisPlugin {
 	function register() {
 		$this->name        = 'Holidays';
 		$this->description = lang_get( 'holidays_description' );
-		$this->version     = '0.91';
+		$this->version     = '0.92';
 		$this->requires    = array('MantisCore'       => '1.2.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
@@ -16,7 +16,8 @@ class HolidaysPlugin extends MantisPlugin {
 		event_declare('EVENT_ACCOUNT_UPDATE_FORM');
 		// Delete holiday settings when user is deleted
 		event_declare('EVENT_ACCOUNT_DELETED');
-
+		// above declarations may become obsolete once these are part of standard mantis
+		
 		plugin_event_hook('EVENT_ACCOUNT_UPDATE_FORM', 'DefHoliday');
 		plugin_event_hook('EVENT_ACCOUNT_DELETED', 'DelHoliday');
 		plugin_event_hook('EVENT_LAYOUT_BODY_BEGIN', 'WarnHoliday');
@@ -44,14 +45,14 @@ class HolidaysPlugin extends MantisPlugin {
 		if (db_num_rows($result) > 0) {
 			$row = db_fetch_array($result);
 			// first check absent indicator
-			if ($row['absent']== 1){
+			if ($row['absent'] >0 ){
 				// now check if today is within period defined
 				$today  = mktime(0, 0, 0, date("m")  , date("d"), date("Y"));
-				if (($today>= $row['periodfrom']) and ($today <= $row['periodto'])){
+				if (($today>= $row['periodfrom']) and ($today <= $row['periodto']) or ( $row['absent'] == 2 ) ){
 					// add the backup to the recipients
 					// has to be an array
 					$mail = array();
-					$mail[1] = $row['backup_user];
+					$mail[1] = $row['backup_user'];
 					return $mail ;
  				}
 			}

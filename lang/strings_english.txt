@@ -4,5 +4,8 @@ $s_holiday_title				= "Define Holiday settings";
 $s_absent						= "Absent";
 $s_backup						= "My backup";
 $s_hol_warning					= "<font color='red'><b>You are on holiday !!!</b></font>";
-$s_holidays_enabled				= "Yes";
+$s_holidays_enabled				= "Yes, period bound";
 $s_holidays_disabled			= "No";
+$s_holidays_anyway				= "Absent regardless of period";
+
+$MANTIS_ERROR[ERROR_INVALID_BACKUP] = 'Backup user is not valid, please review.';   

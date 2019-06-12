@@ -1,0 +1,13 @@
+--- orgsources/account_page.php	Mon Nov 12 00:10:40 2012
++++ account_page.php	Sun Jan 06 12:18:31 2013
+@@ -267,6 +267,10 @@
+ </div>
+ 
+ <br />
++<?php
++// event signal for account page plugins
++event_signal( 'EVENT_ACCOUNT_UPDATE_FORM');
++?>
+ <?php # Delete Account Form BEGIN ?>
+ <?php
+ 	# check if users can't delete their own accounts

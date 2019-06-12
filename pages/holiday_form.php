@@ -1,5 +1,12 @@
 <?PHP
-$u_id = auth_get_current_user_id();
+$file = $_SERVER["SCRIPT_NAME"];
+$break = Explode('/', $file);
+$script = $break[count($break) - 1];
+if (strtolower($script) == "account_page.php"){
+	$user_id = auth_get_current_user_id();
+} else {
+	$user_id = gpc_get_int( 'user_id' );
+}
 ?>
 <br />
 <div align="center">
@@ -11,7 +18,8 @@ $u_id = auth_get_current_user_id();
 </td>
 </tr>
 <form method="post" action="plugins/Holidays/pages/holiday_update.php">
-<input type="hidden" name="user_id" value="<?php echo $u_id ?>" />
+<input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
+<input type="hidden" name="script" value="<?php echo $script ?>" />
 <!-- Titles -->
 <tr <?php echo helper_alternate_class( 1 ) ?> valign="top">
 <td class="category" >
@@ -33,12 +41,12 @@ $u_id = auth_get_current_user_id();
 <?PHP
 // retrieve current available settings
 $hol_table	= plugin_table('period','Holidays');
-$sql 	=  "select * from $hol_table where user_id=$u_id";
+$sql 	=  "select * from $hol_table where user_id=$user_id";
 $result	= db_query_bound($sql);
 $count	= db_num_rows($result) ;
 // if not there create with blanks
 if ($count == 0){
-	$sql2 		= "insert into $hol_table values ($u_id, '','','',0)";
+	$sql2 		= "insert into $hol_table values ($user_id, '','','',0)";
 	$result2	= db_query_bound($sql2);
 	$result		= db_query_bound($sql);
 }
@@ -54,10 +62,13 @@ $to		= date( config_get( 'short_date_format' ), $to);
 <!-- Settings -->
 <tr <?php echo helper_alternate_class() ?> valign="top">
 <td >
+<label><input type="radio" name='absent' value="2" <?php echo(($absent==2)?'checked=checked':'');?>/>
+<?php echo lang_get( 'holidays_anyway' )?></label>
 <label><input type="radio" name='absent' value="1" <?php echo(($absent==1)?'checked=checked':'');?>/>
 <?php echo lang_get( 'holidays_enabled' )?></label>
 <label><input type="radio" name='absent' value="0" <?php echo(($absent==0)?'checked=checked':'');?>/>
 <?php echo lang_get( 'holidays_disabled' )?></label>
+
 </td>
 <td>
 <?php

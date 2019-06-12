@@ -6,11 +6,15 @@ $result	= db_query_bound($sql);
 if (db_num_rows($result) > 0) {
 	$row = db_fetch_array($result);
 	// first check absent indicator
-	if ($row['absent']== 1){
+	if ($row['absent'] >0){
 		// now check if today is within period defined
 		$today  = mktime(0, 0, 0, date("m")  , date("d"), date("Y"));
-		if (($today>= $row['periodfrom']) and ($today <= $row['periodto'])){
-			echo lang_get('hol_warning');
+		if ($row['absent']== 1){
+			if (($today>= $row['periodfrom']) and ($today <= $row['periodto'])){
+				echo lang_get('hol_warning');
+			}
+		} else {
+				echo lang_get('hol_warning');
 		}
 	}
 }

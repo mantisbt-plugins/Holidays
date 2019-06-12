@@ -1,0 +1,10 @@
+--- orgsources/manage_user_edit_page.php	Mon Nov 12 00:10:40 2012
++++ manage_user_edit_page.php	Sun Jan 06 12:21:09 2013
+@@ -292,4 +292,7 @@
+ 	include ( 'account_prefs_inc.php' );
+ 	edit_account_prefs( $t_user['id'], false, false, 'manage_user_edit_page.php?user_id=' . $t_user_id );
+ 
++	// event siganl for adding userdefinitions by plugins
++	event_signal( 'EVENT_ACCOUNT_UPDATE_FORM'); 
++
+ 	html_page_bottom();

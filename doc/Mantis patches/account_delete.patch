@@ -1,0 +1,11 @@
+--- orgsources/account_delete.php	Mon Nov 12 00:10:40 2012
++++ account_delete.php	Sun Jan 06 12:21:11 2013
+@@ -73,6 +73,8 @@
+ auth_logout();
+ 
+ user_delete( $t_user_id );
++// event signal to delete user settings made by plugins
++event_signal( 'EVENT_ACCOUNT_DELETED', $f_user_id ); 
+ 
+ html_page_top1();
+ html_page_top2a();
