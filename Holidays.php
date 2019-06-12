@@ -4,7 +4,7 @@ class HolidaysPlugin extends MantisPlugin {
 	function register() {
 		$this->name        = 'Holidays';
 		$this->description = lang_get( 'holidays_description' );
-		$this->version     = '0.90';
+		$this->version     = '0.91';
 		$this->requires    = array('MantisCore'       => '1.2.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
@@ -13,12 +13,12 @@ class HolidaysPlugin extends MantisPlugin {
 
 	function init() { 
 		// Allow defining holiday
-		event_declare('EVENT_DEFINE_USER');
+		event_declare('EVENT_ACCOUNT_UPDATE_FORM');
 		// Delete holiday settings when user is deleted
-		event_declare('EVENT_DELETE_USER');
+		event_declare('EVENT_ACCOUNT_DELETED');
 
-		plugin_event_hook('EVENT_DEFINE_USER', 'DefHoliday');
-		plugin_event_hook('EVENT_DELETE_USER', 'DelHoliday');
+		plugin_event_hook('EVENT_ACCOUNT_UPDATE_FORM', 'DefHoliday');
+		plugin_event_hook('EVENT_ACCOUNT_DELETED', 'DelHoliday');
 		plugin_event_hook('EVENT_LAYOUT_BODY_BEGIN', 'WarnHoliday');
 		plugin_event_hook('EVENT_NOTIFY_USER_INCLUDE', 'MailHoliday');
 		
@@ -51,7 +51,7 @@ class HolidaysPlugin extends MantisPlugin {
 					// add the backup to the recipients
 					// has to be an array
 					$mail = array();
-					$mail[1] = $row['user_backup'];
+					$mail[1] = $row['backup_user];
 					return $mail ;
  				}
 			}
@@ -68,8 +68,8 @@ class HolidaysPlugin extends MantisPlugin {
 	function schema() {
 		return array(
 			array( 'CreateTableSQL', array( plugin_table( 'period' ), "
-						user_id 			I       NOTNULL AUTOINCREMENT UNSIGNED PRIMARY,
-						user_backup			I		NOTNULL UNSIGNED ,
+						user_id 			I       NOTNULL UNSIGNED PRIMARY,
+						backup_user			I		NOTNULL UNSIGNED ,
 						periodfrom			I		,
 						periodto			I		,
 						absent				I		

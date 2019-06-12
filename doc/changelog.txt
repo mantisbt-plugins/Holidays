@@ -1,1 +1,6 @@
-Version 0.90		31-01-2013		Initial release
+Version 0.90		04-01-2013		Initial release
+Version 0.91		05-01-2013		Renamed events
+									Renamed user_backup to backup_user
+									Removed "autoincrement"definition
+									Fixed typo while updating (for unix platform)
+									Updated install instructions

@@ -1,6 +1,10 @@
+NOTE 
+If you installed version 0.90, please remove infull (manually remove table from database).
+END NOTE
+
 ########################################################
 # 	Mantis Bugtracker Add-On
-# 	Holidays Version 0.90
+# 	Holidays Version 0.91
 #	2013 plugin by Cas Nuy www.NUY.info
 #
 ########################################################
@@ -15,18 +19,29 @@ If a user who had defined he is not available, logs on to the system, he will re
 ********************************************************************************************
 Do ensure to define a signal in account_page.php.
 Add the following line :
-	event_signal( 'EVENT_DEFINE_USER'); 
+	event_signal( 'EVENT_ACCOUNT_UPDATE_FORM'); 
 Just before :
 	<?php # Delete Account Form BEGIN ?>
 
-
 Also ensure to define a signal in manage_user_delete.php.
 Add the following line :
-	event_signal( 'EVENT_DELETE_USER', $f_user_id ); 
+	event_signal( 'EVENT_ACCOUNT_DELETED', $f_user_id ); 
 Just before :
 	form_security_purge('manage_user_delete');
 
+Also ensure to define a signal in account_delete.php.
+Add the following line :
+	event_signal( 'EVENT_ACCOUNT_DELETED', $f_user_id ); 
+Just before :
+	html_page_top1(); 
+	
+Finally ensure to define a signal in manage_user_edit_page.php.
+Add the following line :
+	event_signal( 'EVENT_ACCOUNT_UPDATE_FORM'); 
+Just before :
+	html_page_bottom(); 
 
+	
 //
 events above may appear in standard Mantis in one of the next versions.
 //
@@ -36,7 +51,7 @@ After copying to your webserver :
 - Start mantis ad administrator
 - Select manage
 - Select manage Plugins
-- Select Install behind Holidays 0.90
+- Select Install behind Holidays 0.91
 - Once installed, further maintenance is user-driven via the My Account page
 
 

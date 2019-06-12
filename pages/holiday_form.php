@@ -43,7 +43,7 @@ if ($count == 0){
 	$result		= db_query_bound($sql);
 }
 while ($row = db_fetch_array($result)) {
-	$backup	= $row['user_backup'] ;
+	$backup	= $row['backup_user'] ;
 	$from	= $row['periodfrom'] ;
 	$to		= $row['periodto'] ;
 	$absent	= $row['absent'];
