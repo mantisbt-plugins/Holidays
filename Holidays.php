@@ -4,7 +4,7 @@ class HolidaysPlugin extends MantisPlugin {
 	function register() {
 		$this->name        = 'Holidays';
 		$this->description = lang_get( 'holidays_description' );
-		$this->version     = '0.94';
+		$this->version     = '0.95';
 		$this->requires    = array('MantisCore'       => '1.2.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
@@ -19,7 +19,7 @@ class HolidaysPlugin extends MantisPlugin {
 		// Delete holiday settings when user is deleted
 		event_declare('EVENT_ACCOUNT_DELETED');
 		// above declarations may become obsolete once these are part of standard mantis
-		
+	
 		plugin_event_hook('EVENT_ACCOUNT_UPDATE_FORM', 'DefHoliday');
 		plugin_event_hook('EVENT_MANAGE_USER_FORM', 'DefHoliday');
 		plugin_event_hook('EVENT_ACCOUNT_DELETED', 'DelHoliday');
@@ -62,7 +62,7 @@ class HolidaysPlugin extends MantisPlugin {
 		}
 		return;
 	}
-		
+	
 	function DelHoliday($p_event,$f_user_id){
  		$hol_table	= plugin_table('period');
 		$sql = "delete from $hol_table where user_id=$f_user_id";
@@ -80,4 +80,5 @@ class HolidaysPlugin extends MantisPlugin {
 						" ) ),
 		);
 	} 
+	
 }

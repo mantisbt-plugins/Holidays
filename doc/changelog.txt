@@ -9,3 +9,4 @@ Version 0.92		06-01-2013		Fixed missing quote in Holiday.php
 									Build in check on valid backup user
 Version 0.93		06-01-2013		Used different event in manage_user pages
 Version 0.94						Chamged lay-out of form
+Version 0.95						Added a check @ system startup if user is authenticated
