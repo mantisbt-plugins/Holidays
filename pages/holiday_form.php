@@ -56,8 +56,16 @@ while ($row = db_fetch_array($result)) {
 	$to		= $row['periodto'] ;
 	$absent	= $row['absent'];
 }
-$from 	= date( config_get( 'short_date_format' ), $from); 
-$to		= date( config_get( 'short_date_format' ), $to); 
+if ( $from == '0' ) {
+	$from = '';
+} else { 
+	$from 	= date( config_get( 'short_date_format' ), $from); 
+}
+if ( $to == '0' ) {
+	$to = '';
+} else { 
+	$to	= date( config_get( 'short_date_format' ), $to); 
+}
 ?>
 <!-- Settings -->
 <tr <?php echo helper_alternate_class() ?> valign="top">

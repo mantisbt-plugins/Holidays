@@ -12,9 +12,18 @@ if ($absent > 0){
 	if (($user_id == $backup) or ($backup ==0)) {
 		trigger_error( ERROR_INVALID_BACKUP, ERROR );
 	}
+	if ($absent == 1){
+		if (($form == '') or ($to == '')) {
+			trigger_error( ERROR_INVALID_DATE, ERROR );
+		}
+	}
 }
 // perform update
-$sql = "UPDATE $hol_table set periodfrom=$from,periodto=$to, absent=$absent, backup_user=$backup  WHERE user_id = $user_id";
+if ($absent == 1){
+	$sql = "UPDATE $hol_table set periodfrom=$from,periodto=$to, absent=$absent, backup_user=$backup  WHERE user_id = $user_id";
+} else {
+	$sql = "UPDATE $hol_table set  absent=$absent, backup_user=$backup  WHERE user_id = $user_id";
+}
 $result = db_query_bound($sql);
 $script .="?user_id=";
 $script .=$user_id;

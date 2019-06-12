@@ -9,3 +9,4 @@ $s_holidays_disabled			= "No";
 $s_holidays_anyway				= "Absent regardless of period";
 
 $MANTIS_ERROR[ERROR_INVALID_BACKUP] = 'Backup user is not valid, please review.';   
+$MANTIS_ERROR[ERROR_INVALID_DATE] = 'The date is invalid, please review.';   
