@@ -1,7 +1,6 @@
 <?php
 $s_holidays_title				= 'Holidays';
 $s_holidays_description			= 'Abwesenheiten eintragen und Stellvertreter festlegen.';
-$s_holiday_title				= 'Abwesenheit / Stellvertreterregelung';
 $s_absent						= 'Abwesend';
 $s_backup						= 'Mein Stellvertreter';
 $s_hol_warning					= 'Du bist als abwesend markiert. Bitte ändere das bei Bedarf über Konto';
