@@ -8,7 +8,7 @@ print_manage_menu();
 <br/>
 <form action="<?php echo plugin_page( 'config_edit' ) ?>" method="post">
 <table align="center" class="width50" cellspacing="1">
-<tr <?php echo helper_alternate_class() ?>>
+<tr>
 <td class="category" colspan="2">
 </td>
 </tr>
@@ -17,7 +17,7 @@ print_manage_menu();
 <?php echo lang_get( 'holidays_title' ) . ': ' . lang_get( 'plugin_tasks_config' ) ?>
 </td>
 </tr>
-<tr <?php echo helper_alternate_class( )?>>
+<tr>
 <td class="category" width="60%">
 <?php echo lang_get( 'holidays_reminders' )?>
 </td>
@@ -29,7 +29,7 @@ print_manage_menu();
 </td>
 </tr> 
 
-<tr <?php echo helper_alternate_class( )?>>
+<tr>
 <td class="category" width="60%">
 <?php echo lang_get( 'holidays_notes' )?>
 </td>
