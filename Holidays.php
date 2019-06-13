@@ -23,10 +23,9 @@ class HolidaysPlugin extends MantisPlugin {
 		include( config_get( 'plugin_path' ) . 'Holidays' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'holiday_form.php');  
 	}
 	
-	function MailHoliday($p_event, $p_event_params){
+	function MailHoliday($p_event, $p_bug_id, $p_notification_type, $p_user_id ){
 		// get the handler absence status
 		$hol_table	= plugin_table('period','Holidays');
-		$p_user_id  = $p_event_params[2];
 		$sql 		=  "select * from $hol_table where user_id=$p_user_id";
 		$result	    = db_query($sql);
 		$remove     = false;
