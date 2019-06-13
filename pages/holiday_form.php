@@ -22,9 +22,6 @@ if (strtolower($script) == "account_prefs_page.php"){
 <td class="category">
 <?php echo lang_get( 'end_date' ) ?>
 </td>
-<td class="category">
-<?php echo lang_get( 'backup' ) ?>
-</td>
 </tr>
 <?PHP
 // retrieve current available settings
@@ -39,7 +36,6 @@ if ($count == 0){
 	$result		= db_query($sql);
 }
 while ($row = db_fetch_array($result)) {
-	$backup	= $row['backup_user'] ;
 	$from	= $row['periodfrom'] ;
 	$to		= $row['periodto'] ;
 	$absent	= $row['absent'];
@@ -84,7 +80,5 @@ if ( $to == '0' ) {
 		data-picker-format="<?php echo config_get( 'datetime_picker_format' ) ?>"
 		<?php helper_get_tab_index() ?> value="<?php echo $to ?>" />
 	<i class="fa fa-calendar fa-xlg datetimepicker"></i>
-</td>
-<td>
 </td>
 </tr>

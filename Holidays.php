@@ -23,14 +23,13 @@ class HolidaysPlugin extends MantisPlugin {
 		include( config_get( 'plugin_path' ) . 'Holidays' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'holiday_form.php');  
 	}
 	
-	function MailHoliday($p_event, $p_bug_id){
-		$bug_info = bug_get( $p_bug_id, true ); 
-		$handler = $bug_info->handler_id;
-		// get the handler of the issue
-		$hol_table	= plugin_table('period');
-		$handler	= $bug_info->handler_id ;
-		$sql 		=  "select * from $hol_table where user_id=$handler";
-		$result	= db_query($sql);
+	function MailHoliday($p_event, $p_event_params){
+		// get the handler absence status
+		$hol_table	= plugin_table('period','Holidays');
+		$p_user_id  = $p_event_params[2];
+		$sql 		=  "select * from $hol_table where user_id=$p_user_id";
+		$result	    = db_query($sql);
+		$remove     = false;
 		// check if this person is on holiday		
 		if (db_num_rows($result) > 0) {
 			$row = db_fetch_array($result);
@@ -39,15 +38,12 @@ class HolidaysPlugin extends MantisPlugin {
 				// now check if today is within period defined
 				$today  = mktime(0, 0, 0, date("m")  , date("d"), date("Y"));
 				if (($today>= $row['periodfrom']) and ($today <= $row['periodto']) or ( $row['absent'] == 2 ) ){
-					// add the backup to the recipients
-					// has to be an array
-					$mail = array();
-					$mail[1] = $row['backup_user'];
-					return $mail ;
+					// Remove the absent user form notification
+					$remove = true;
  				}
 			}
 		}
-		return;
+		return $remove;
 	}
 	
 	function UpdateHoliday(){
@@ -80,7 +76,6 @@ class HolidaysPlugin extends MantisPlugin {
 		return array(
 			array( 'CreateTableSQL', array( plugin_table( 'period' ), "
 						user_id 			I       NOTNULL UNSIGNED PRIMARY,
-						backup_user			I		NOTNULL UNSIGNED ,
 						periodfrom			I		,
 						periodto			I		,
 						absent				I		
