@@ -15,7 +15,7 @@ class HolidaysPlugin extends MantisPlugin {
 		plugin_event_hook('EVENT_ACCOUNT_PREF_UPDATE_FORM', 'DefHoliday');
 		plugin_event_hook('EVENT_ACCOUNT_PREF_UPDATE', 'UpdateHoliday');
 		plugin_event_hook('EVENT_MANAGE_USER_DELETE', 'DelHoliday');
-		plugin_event_hook('EVENT_NOTIFY_USER_INCLUDE', 'MailHoliday');
+		plugin_event_hook('EVENT_NOTIFY_USER_EXCLUDE', 'MailHoliday');
 		
 	}
 
@@ -56,21 +56,16 @@ class HolidaysPlugin extends MantisPlugin {
 	    $from		= strtotime(substr($_REQUEST['holidays_start_date'],0,10));
 	    $to			= strtotime(substr($_REQUEST['holidays_end_date'],0,10));
 	    $absent		= $_REQUEST['absent'];
-	    $backup		= isset($_REQUEST['bu_handler']) ? $_REQUEST['bu_handler'] : 'NULL';
 	    // check on valid absence date
-	    if ($absent > 0){
-	        if ($absent == 1){
-	            if (($from == '') or ($to == '') or ($from > $to)) {
-	                trigger_error( ERROR_INVALID_DATE, ERROR );
-	            }
-	        }
-	    }
+        if ($absent == 1 and ($from == '' or $to == '' or $from > $to)){
+            trigger_error( 'ERROR_INVALID_DATE', ERROR );
+        }
 	    
 	    // perform update
 	    if ($absent == 1){
-	        $sql = "UPDATE $hol_table set periodfrom=$from,periodto=$to, absent=$absent, backup_user=$backup  WHERE user_id = $user_id";
+	        $sql = "UPDATE $hol_table set periodfrom=$from, periodto=$to, absent=$absent  WHERE user_id = $user_id";
 	    } else {
-	        $sql = "UPDATE $hol_table set  absent=$absent, backup_user=$backup  WHERE user_id = $user_id";
+	        $sql = "UPDATE $hol_table set absent=$absent WHERE user_id = $user_id";
 	    }
 	    $result = db_query($sql);
 	}
