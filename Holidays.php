@@ -7,7 +7,7 @@ class HolidaysPlugin extends MantisPlugin {
 		$this->version     = '2.21';
 		$this->requires    = array('MantisCore'       => '2.21.0',);
 		$this->author      = array('Cas Nuy', 'c2pil');
-		$this->contact     = array('Cas-at-nuy.info', 'c2pil@gmail.com');
+		$this->contact     = 'c2pil@gmail.com';
 	}
 
 	function init() { 

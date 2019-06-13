@@ -8,4 +8,4 @@ $s_holidays_anyway				= "Indéterminée";
 $s_start_date                   = "Date de début";
 $s_end_date                     = "Date de fin";
    
-$MANTIS_ERROR[ERROR_INVALID_DATE] = 'La date est invalide, veuillez vérifier les informations entrées';
+$MANTIS_ERROR['ERROR_INVALID_DATE'] = 'La date est invalide, veuillez vérifier les informations entrées';
