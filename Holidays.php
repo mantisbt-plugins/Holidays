@@ -4,38 +4,23 @@ class HolidaysPlugin extends MantisPlugin {
 	function register() {
 		$this->name        = 'Holidays';
 		$this->description = lang_get( 'holidays_description' );
-		$this->version     = '2.01';
-		$this->requires    = array('MantisCore'       => '2.0.0',);
-		$this->author      = 'Cas Nuy';
-		$this->contact     = 'Cas-at-nuy.info';
-		$this->url         = 'http://www.nuy.info';
+		$this->version     = '2.21';
+		$this->requires    = array('MantisCore'       => '2.21.0',);
+		$this->author      = array('Cas Nuy', 'c2pil');
+		$this->contact     = array('Cas-at-nuy.info', 'c2pil@gmail.com');
 	}
 
 	function init() { 
-		// Allow defining holiday on account page
-		event_declare('EVENT_ACCOUNT_UPDATE_FORM');
-		// Allow defining holiday by administrator
-		event_declare('EVENT_MANAGE_USER_FORM');
-		// Delete holiday settings when user is deleted
-		event_declare('EVENT_ACCOUNT_DELETED');
-		// above declarations may become obsolete once these are part of standard mantis
 	
-		plugin_event_hook('EVENT_ACCOUNT_UPDATE_FORM', 'DefHoliday');
-		plugin_event_hook('EVENT_MANAGE_USER_FORM', 'DefHoliday');
-		plugin_event_hook('EVENT_ACCOUNT_DELETED', 'DelHoliday');
-		plugin_event_hook('EVENT_LAYOUT_BODY_BEGIN', 'WarnHoliday');
+		plugin_event_hook('EVENT_ACCOUNT_PREF_UPDATE_FORM', 'DefHoliday');
+		plugin_event_hook('EVENT_ACCOUNT_PREF_UPDATE', 'UpdateHoliday');
+		plugin_event_hook('EVENT_MANAGE_USER_DELETE', 'DelHoliday');
 		plugin_event_hook('EVENT_NOTIFY_USER_INCLUDE', 'MailHoliday');
 		
 	}
 
 	function DefHoliday(){
 		include( config_get( 'plugin_path' ) . 'Holidays' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'holiday_form.php');  
-//		include 'plugins/Holidays/pages/holiday_form.php';
-	}
-	
-	function WarnHoliday(){
-		include( config_get( 'plugin_path' ) . 'Holidays' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'holiday_warning.php');  
-//		include 'plugins/Holidays/pages/holiday_warning.php';
 	}
 	
 	function MailHoliday($p_event, $p_bug_id){
@@ -45,7 +30,7 @@ class HolidaysPlugin extends MantisPlugin {
 		$hol_table	= plugin_table('period');
 		$handler	= $bug_info->handler_id ;
 		$sql 		=  "select * from $hol_table where user_id=$handler";
-		$result	= db_query_bound($sql);
+		$result	= db_query($sql);
 		// check if this person is on holiday		
 		if (db_num_rows($result) > 0) {
 			$row = db_fetch_array($result);
@@ -65,10 +50,35 @@ class HolidaysPlugin extends MantisPlugin {
 		return;
 	}
 	
+	function UpdateHoliday(){
+	    $user_id    = $_REQUEST['user_id'];
+	    $hol_table	= plugin_table('period','Holidays');
+	    $from		= strtotime(substr($_REQUEST['holidays_start_date'],0,10));
+	    $to			= strtotime(substr($_REQUEST['holidays_end_date'],0,10));
+	    $absent		= $_REQUEST['absent'];
+	    $backup		= isset($_REQUEST['bu_handler']) ? $_REQUEST['bu_handler'] : 'NULL';
+	    // check on valid absence date
+	    if ($absent > 0){
+	        if ($absent == 1){
+	            if (($from == '') or ($to == '') or ($from > $to)) {
+	                trigger_error( ERROR_INVALID_DATE, ERROR );
+	            }
+	        }
+	    }
+	    
+	    // perform update
+	    if ($absent == 1){
+	        $sql = "UPDATE $hol_table set periodfrom=$from,periodto=$to, absent=$absent, backup_user=$backup  WHERE user_id = $user_id";
+	    } else {
+	        $sql = "UPDATE $hol_table set  absent=$absent, backup_user=$backup  WHERE user_id = $user_id";
+	    }
+	    $result = db_query($sql);
+	}
+	
 	function DelHoliday($p_event,$f_user_id){
  		$hol_table	= plugin_table('period');
 		$sql = "delete from $hol_table where user_id=$f_user_id";
-		$result		= db_query_bound($sql);
+		$result		= db_query($sql);
 	}
 
 	function schema() {
