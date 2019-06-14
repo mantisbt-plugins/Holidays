@@ -1,9 +1,12 @@
 <?php
+require_once __DIR__.'/api/utils/utils.php';
+
 class HolidaysPlugin extends MantisPlugin {
- 
+    
+    
 	function register() {
 		$this->name        = 'Holidays';
-		$this->description = lang_get( 'holidays_description' );
+		$this->description = plugin_lang_get( 'description' );
 		$this->version     = '2.21';
 		$this->requires    = array('MantisCore'       => '2.21.0',);
 		$this->author      = array('Cas Nuy', 'c2pil');
@@ -17,6 +20,12 @@ class HolidaysPlugin extends MantisPlugin {
 		plugin_event_hook('EVENT_MANAGE_USER_DELETE', 'DelHoliday');
 		plugin_event_hook('EVENT_NOTIFY_USER_EXCLUDE', 'MailHoliday');
 		
+	}
+	
+	function config() {
+	    return array(
+	        'date_format' => 'Y-m-d H:i:s'
+	    );
 	}
 
 	function DefHoliday(){
@@ -63,6 +72,28 @@ class HolidaysPlugin extends MantisPlugin {
 	        $sql = "UPDATE $hol_table set absent=$absent WHERE user_id = $user_id";
 	    }
 	    $result = db_query($sql);
+	    
+	    $auth_username = user_get_name(auth_get_current_user_id());
+	    $updated_username = user_get_name($user_id);
+	    $log_from = substr($_REQUEST['holidays_start_date'],0,10);
+	    $log_to = substr($_REQUEST['holidays_end_date'],0,10);
+	    
+	    switch($absent){
+	        case 0:
+	            $message_log = sprintf( plugin_lang_get('log_present'),
+	                           $updated_username, $auth_username);
+	            break;
+	        case 1:
+	            $message_log = sprintf( plugin_lang_get('log_absent_period'),
+	                           $updated_username, $log_from, $log_to, $auth_username);
+	            break;
+	        case 2:
+	            $message_log = sprintf( plugin_lang_get('log_absent_indefinite'),
+	                           $updated_username, $auth_username);
+	            break;
+	    }
+	    
+	    write_log($message_log);
 	}
 	
 	function DelHoliday($p_event,$f_user_id){

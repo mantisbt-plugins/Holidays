@@ -1,12 +1,14 @@
 <?php
-$s_holidays_description			= "Ability to define a user is not available";
-$s_absent						= "Absence period";
-$s_backup						= "My backup";
-$s_hol_warning					= "<font color='red'><b>You are on holiday !!!</b></font>";
-$s_holidays_enabled				= "Yes, period bound";
-$s_holidays_disabled			= "None";
-$s_holidays_anyway				= "Indefinite";
-$s_start_date                   = "Start date";
-$s_end_date                     = "End date";
+$s_plugin_Holidays_description				= "Ability to define a user is not available";
+$s_plugin_Holidays_absent					= "Absence period";
+$s_plugin_Holidays_hol_warning				= "<font color='red'><b>You are on holiday !!!</b></font>";
+$s_plugin_Holidays_holidays_enabled			= "Yes, period bound";
+$s_plugin_Holidays_holidays_disabled		= "None";
+$s_plugin_Holidays_holidays_anyway			= "Indefinite";
+$s_plugin_Holidays_start_date               = "Start date";
+$s_plugin_Holidays_end_date                 = "End date";
+$s_plugin_Holidays_log_absent_period 		= "User %s was set on holidays from %s to %s by %s.";
+$s_plugin_Holidays_log_absent_indefinite 	= "User %s was set on holidays indefinitely by %s.";
+$s_plugin_Holidays_log_present 				= "User %s was set present par %s.";
 
 $MANTIS_ERROR['ERROR_INVALID_DATE'] = 'The date is invalid, please review.';

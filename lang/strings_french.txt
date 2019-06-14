@@ -1,11 +1,14 @@
 <?php
-$s_holidays_description			= "Impossible de définir un utilisateur";
-$s_absent						= "Période d'absence";
-$s_hol_warning					= "<font color='red'><b>Vous etes en vacances !!!</b></font>";
-$s_holidays_enabled				= "Oui, pour une période donnée";
-$s_holidays_disabled			= "Aucune";
-$s_holidays_anyway				= "Indéterminée";
-$s_start_date                   = "Date de début";
-$s_end_date                     = "Date de fin";
+$s_plugin_Holidays_description				= "Impossible de définir un utilisateur";
+$s_plugin_Holidays_absent					= "Période d'absence";
+$s_plugin_Holidays_hol_warning				= "<font color='red'><b>Vous etes en vacances !!!</b></font>";
+$s_plugin_Holidays_holidays_enabled			= "Oui, pour une période donnée";
+$s_plugin_Holidays_holidays_disabled		= "Aucune";
+$s_plugin_Holidays_holidays_anyway			= "Indéterminée";
+$s_plugin_Holidays_start_date               = "Date de début";
+$s_plugin_Holidays_end_date                 = "Date de fin";
+$s_plugin_Holidays_log_absent_period 		= "L'utilisateur %s a été marqué en vacances du %s au %s par %s.";
+$s_plugin_Holidays_log_absent_indefinite 	= "L'utilisateur %s a été marqué en vacances indéfiniment par %s.";
+$s_plugin_Holidays_log_present 				= "L'utilisateur %s a été marqué présent par %s.";
    
 $MANTIS_ERROR['ERROR_INVALID_DATE'] = 'La date est invalide, veuillez vérifier les informations entrées';

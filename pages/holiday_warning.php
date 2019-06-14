@@ -13,11 +13,11 @@ if( auth_is_user_authenticated()  ) {
 				// now check if today is within period defined
 				$today  = mktime(0, 0, 0, date("m")  , date("d"), date("Y"));
 				if (($today>= $row['periodfrom']) and ($today <= $row['periodto'])){
-					echo lang_get('hol_warning');
+					echo plugin_lang_get('plugin_Holidays_hol_warning');
 				}
 			} else {
 				// period is not relevant
-				echo lang_get('hol_warning');
+				echo plugin_lang_get('plugin_Holidays_hol_warning');
 			}
 		}
 	}

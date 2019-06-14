@@ -42,26 +42,26 @@ if ( $to == '0' ) {
 <!-- Titles -->
 <tr valign="top">
 <td class="category" >
-<?php echo lang_get( 'absent' ) ?>
+<?php echo plugin_lang_get( 'absent' ) ?>
 </td>
 <td>
 <label><input type="radio" name='absent' value="2" <?php echo(($absent==2)?'checked=checked':'');?>/>
-<?php echo lang_get( 'holidays_anyway' )?></label>
+<?php echo plugin_lang_get( 'holidays_anyway' )?></label>
 
 <label><input type="radio" name='absent' value="1" <?php echo(($absent==1)?'checked=checked':'');?>/>
-<?php echo lang_get( 'holidays_enabled' )?></label>
+<?php echo plugin_lang_get( 'holidays_enabled' )?></label>
 
 <label><input type="radio" name='absent' value="0" <?php echo(($absent==0)?'checked=checked':'');?>/>
-<?php echo lang_get( 'holidays_disabled' )?></label>
+<?php echo plugin_lang_get( 'holidays_disabled' )?></label>
 <br />
-<label><?php echo lang_get( 'start_date' ) ?></label>
+<label><?php echo plugin_lang_get( 'start_date' ) ?></label>
 <input type="text" id="holidays_start_date" name="holidays_start_date" class="datetimepicker input-sm" size="16" maxlength="16"
 		data-picker-locale="<?php lang_get_current_datetime_locale() ?>"
 		data-picker-format="<?php echo config_get( 'datetime_picker_format' ) ?>"
 		<?php helper_get_tab_index() ?> value="<?php echo $from ?>" />
 	<i class="fa fa-calendar fa-xlg datetimepicker"></i>
 
-<label><?php echo lang_get( 'end_date' ) ?></label>
+<label><?php echo plugin_lang_get( 'end_date' ) ?></label>
 <input type="text" id="holidays_end_date" name="holidays_end_date" class="datetimepicker input-sm" size="16" maxlength="16"
 		data-picker-locale="<?php lang_get_current_datetime_locale() ?>"
 		data-picker-format="<?php echo config_get( 'datetime_picker_format' ) ?>"
@@ -69,4 +69,3 @@ if ( $to == '0' ) {
 	<i class="fa fa-calendar fa-xlg datetimepicker"></i>
 
 </td>
-<!-- Settings -->

@@ -19,4 +19,4 @@ $RECYCLE_BIN/
 *.lnk
 .merge_file*.doc*
 target
-tmp/logs/*
+tmp/logs
