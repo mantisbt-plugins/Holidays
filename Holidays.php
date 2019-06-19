@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/api/utils/utils.php';
-define ( HOLIDAYS_PERIOD, 'period' );
-define ( HOLIDAYS_ABSENT, 'absent' );
+define ( 'HOLIDAYS_PERIOD', 'period' );
+define ( 'HOLIDAYS_ABSENT', 'absent' );
 
 /**
  * Main class of plugin Holidays for Mantis
@@ -58,7 +58,8 @@ class HolidaysPlugin extends MantisPlugin {
      * Includes absence field in preferences form
      */
     public function def_holiday() {
-        return include_once (plugin_page ( 'holiday_form.php' ));
+        include_once (config_get( 'plugin_path' ) . 'Holidays' . 
+                DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'holiday_form.php');
     }
 
     /**
