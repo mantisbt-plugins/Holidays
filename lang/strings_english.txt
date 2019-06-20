@@ -1,5 +1,5 @@
 <?php
-$s_plugin_Holidays_description				= "Ability to define a user is not available";
+$s_plugin_Holidays_description				= "Ability to define a user as not available and avoid sending him mail notifications";
 $s_plugin_Holidays_absent					= "Absence period";
 $s_plugin_Holidays_hol_warning				= "<font color='red'><b>You are on holiday !!!</b></font>";
 $s_plugin_Holidays_holidays_enabled			= "Yes, period bound";

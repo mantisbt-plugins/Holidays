@@ -1,5 +1,5 @@
 <?php
-$s_plugin_Holidays_description				= "Impossible de définir un utilisateur";
+$s_plugin_Holidays_description				= "Permet de mettre un utilisateur en vacances et le retirer des notifications mails en son absence";
 $s_plugin_Holidays_absent					= "Période d'absence";
 $s_plugin_Holidays_hol_warning				= "<font color='red'><b>Vous etes en vacances !!!</b></font>";
 $s_plugin_Holidays_holidays_enabled			= "Oui, pour une période donnée";
