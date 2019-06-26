@@ -71,13 +71,13 @@ if ($to == '0') {
         <td><label> <input type="radio" name='absent' value="2"
                 <?php check_checked( 2, $absent, false );?> />
                 <?php echo plugin_lang_get( 'holidays_anyway' )?>
-            </label> <label> <input type="radio" name='absent' value="1"
+            </label> <label style="margin-left:5px;"> <input type="radio" name='absent' value="1"
                 <?php check_checked( 1, $absent, false );?> />
                 <?php echo plugin_lang_get( 'holidays_enabled' )?>
-            </label> <label> <input type="radio" name='absent' value="0"
+            </label> <label style="margin-left:5px;"> <input type="radio" name='absent' value="0"
                 <?php check_checked( 0, $absent, false );?> />
                 <?php echo plugin_lang_get( 'holidays_disabled' )?>
-            </label> <br /> <label><?php echo plugin_lang_get( 'start_date' ) ?></label>
+            </label> <br /> <br /><label><?php echo plugin_lang_get( 'start_date' ) ?></label>
             <input type="text" id="holidays_start_date"
             name="holidays_start_date" class="datetimepicker input-sm"
             size="16" maxlength="16"
