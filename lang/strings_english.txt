@@ -1,12 +1,31 @@
 <?php
-$s_holidays_description			= "Ability to define a user is not available";
-$s_holiday_title				= "Define Holiday settings";
-$s_absent						= "Absent";
-$s_backup						= "My backup";
-$s_hol_warning					= "<font color='red'><b>You are on holiday !!!</b></font>";
-$s_holidays_enabled				= "Yes, period bound";
-$s_holidays_disabled			= "No";
-$s_holidays_anyway				= "Absent regardless of period";
+/*
+ * This file is part of the Holidays plugin for MantisBT.
+ *
+ * Holidays is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ 
+ * The Holidays plugin is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ 
+ * You should have received a copy of the GNU General Public License
+ * along with the Holidays plugin.  If not, see <https://www.gnu.org/licenses/>.
+ */
+ 
+$s_plugin_Holidays_description				= "Ability to define a user as not available and avoid sending him mail notifications";
+$s_plugin_Holidays_absent					= "Absence period";
+$s_plugin_Holidays_hol_warning				= "<font color='red'><b>You are on holiday !!!</b></font>";
+$s_plugin_Holidays_holidays_enabled			= "Yes, period bound";
+$s_plugin_Holidays_holidays_disabled		= "None";
+$s_plugin_Holidays_holidays_anyway			= "Indefinite";
+$s_plugin_Holidays_start_date               = "Start date";
+$s_plugin_Holidays_end_date                 = "End date";
+$s_plugin_Holidays_log_absent_period 		= "User %s was set on holidays from %s to %s by %s.";
+$s_plugin_Holidays_log_absent_indefinite 	= "User %s was set on holidays indefinitely by %s.";
+$s_plugin_Holidays_log_present 				= "User %s was set present par %s.";
 
-$MANTIS_ERROR['ERROR_INVALID_BACKUP'] = 'Backup user is not valid, please review.';   
-$MANTIS_ERROR['ERROR_INVALID_DATE'] = 'The date is invalid, please review.';   
+$MANTIS_ERROR['ERROR_INVALID_DATE'] = 'The date is invalid, please review.';

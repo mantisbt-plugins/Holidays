@@ -1,0 +1,31 @@
+<?php
+/*
+ * This file is part of the Holidays plugin for MantisBT.
+ *
+ * Holidays is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ 
+ * The Holidays plugin is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ 
+ * You should have received a copy of the GNU General Public License
+ * along with the Holidays plugin.  If not, see <https://www.gnu.org/licenses/>.
+ */
+ 
+$s_plugin_Holidays_description				= "Permet de mettre un utilisateur en vacances et le retirer des notifications mails en son absence";
+$s_plugin_Holidays_absent					= "Période d'absence";
+$s_plugin_Holidays_hol_warning				= "<font color='red'><b>Vous etes en vacances !!!</b></font>";
+$s_plugin_Holidays_holidays_enabled			= "Oui, pour une période donnée";
+$s_plugin_Holidays_holidays_disabled		= "Aucune";
+$s_plugin_Holidays_holidays_anyway			= "Indéterminée";
+$s_plugin_Holidays_start_date               = "Date de début";
+$s_plugin_Holidays_end_date                 = "Date de fin";
+$s_plugin_Holidays_log_absent_period 		= "L'utilisateur %s a été marqué en vacances du %s au %s par %s.";
+$s_plugin_Holidays_log_absent_indefinite 	= "L'utilisateur %s a été marqué en vacances indéfiniment par %s.";
+$s_plugin_Holidays_log_present 				= "L'utilisateur %s a été marqué présent par %s.";
+   
+$MANTIS_ERROR['ERROR_INVALID_DATE'] = 'La date est invalide, veuillez vérifier les informations entrées';
