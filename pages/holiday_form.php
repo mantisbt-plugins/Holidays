@@ -60,13 +60,14 @@ if ($to == '0') {
     $to = date ( config_get ( 'short_date_format' ), $to );
 }
 ?>
-<div align="center">
-    <input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
-    <input type="hidden" name="script" value="<?php echo $script ?>" />
     <!-- Titles -->
     <tr valign="top">
         <td class="category">
             <?php echo plugin_lang_get( 'absent' ) ?>
+            <div align="center">
+                <input type="hidden" name="user_id" value="<?php echo $user_id ?>" />
+                <input type="hidden" name="script" value="<?php echo $script ?>" />
+            </div>
         </td>
         <td><label> <input type="radio" name='absent' value="2"
                 <?php check_checked( 2, $absent, false );?> />
