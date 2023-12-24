@@ -1,0 +1,3 @@
+Version: 2.10 #
+Devurl: https://github.com/mantisbt-plugins/Holidsays/blob/main/version.txt #
+Location: https://github.com/mantisbt-plugins/Holidays/archive/refs/heads/main.zip #

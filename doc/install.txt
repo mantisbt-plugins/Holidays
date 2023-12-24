@@ -1,0 +1,75 @@
+########################################################
+# 	Mantis Bugtracker Add-On
+# 	Holidays Version 2.10
+#	2013-2023 plugin by Cas Nuy www.NUY.info
+#
+########################################################
+
+This plugin allows users to register that they are not available for  a certain period or regardless of period.
+Additionally a backup user must be defined who will be informed about all new/running issues ,in addition to the user on Holiday.
+
+If a user who had defined he is not available, logs on to the system, he will receive a warning.
+
+********************************************************************************************
+* Installation                                                                             *
+********************************************************************************************
+
+************************************
+* Adding events to core mantis     *
+************************************
+The events below may appear in standard Mantis in one of the next versions.
+
+Mantis can be patched manual like this:
+Do ensure to define a signal in account_page.php.
+Add the following line :
+	event_signal( 'EVENT_ACCOUNT_UPDATE_FORM'); 
+Just before :
+	<?php # Delete Account Form BEGIN ?>
+
+Also ensure to define a signal in manage_user_delete.php.
+Add the following line :
+	event_signal( 'EVENT_ACCOUNT_DELETED', $f_user_id ); 
+Just before :
+	form_security_purge('manage_user_delete');
+
+Also ensure to define a signal in account_delete.php.
+Add the following line :
+	event_signal( 'EVENT_ACCOUNT_DELETED', $f_user_id ); 
+Just before :
+	html_page_top1(); 
+	
+Finally ensure to define a signal in manage_user_edit_page.php.
+Add the following line :
+	event_signal( 'EVENT_MANAGE_USER_FORM'); 
+Just before :
+	include ( 'account_prefs_inc.php' ); 
+
+
+Mantis can also be updated by applying some patch files.
+These can be found in the directory "doc\Mantis patches".
+I have not patched events_inc.php
+	
+************************************
+* Adding plugin to mantis          *
+************************************ 
+- Copy Holidays directory to the plugins directory of your mantis installation
+After copying to your webserver :
+- Start mantis ad administrator
+- Select manage
+- Select manage Plugins
+- Select Install behind Holidays 0.96
+- Once installed, further maintenance is user-driven via the My Account page
+
+
+The text of the warning page can be adjusted (including html codes) within the language file
+********************************************************************************************
+License                                                                                    *
+********************************************************************************************
+This plugin is distributed under the same conditions as Mantis itself.
+
+********************************************************************************************
+Greetings                                                                                  *
+********************************************************************************************
+Cas Nuy 
+cas@nuy.info
+http://www.nuy.info

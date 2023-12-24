@@ -13,3 +13,5 @@ Version 0.95		09-01-2013		Added a check @ system startup if user is authenticate
 Version 0.96		15-01-2013		Added default value to date fields
 									Added check on valid date(s)
 Version 2.01		24-01-2017		Mantis 2.x compatibility
+Version 2.02		25-08-2022		Bugfix
+Version 2.10		24-12-2023		Complete review
