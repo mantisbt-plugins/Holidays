@@ -41,7 +41,7 @@ class HolidaysPlugin extends MantisPlugin {
 		$handler = $bug_info->handler_id;
 		// get the handler of the issue
 		$handler	= $bug_info->handler_id ;
-		$sql 		=  "select * from {plugin_holidays_period} where user_id=$handler";
+		$sql 		=  "select * from {plugin_Holidays_period} where user_id=$handler";
 		$result	= db_query($sql);
 		// check if this person is on holiday		
 		if (db_num_rows($result) > 0) {
@@ -63,7 +63,7 @@ class HolidaysPlugin extends MantisPlugin {
 	}
 	
 	function DelHoliday($p_event,$f_user_id){
- 		$sql = "delete from {plugin_holidays_period} where user_id=$f_user_id";
+ 		$sql = "delete from {plugin_Holidays_period} where user_id=$f_user_id";
 		$result		= db_query($sql);
 	}
 
