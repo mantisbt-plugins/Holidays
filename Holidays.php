@@ -4,7 +4,7 @@ class HolidaysPlugin extends MantisPlugin {
 	function register() {
 		$this->name        = 'Holidays';
 		$this->description = lang_get( 'holidays_description' );
-		$this->version     = '2.10';
+		$this->version     = '2.11';
 		$this->requires    = array('MantisCore'       => '2.0.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
